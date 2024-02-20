@@ -30,12 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <CustomCommands>
-      <CustomCommands>
-        <Command type="AfterBuild" command="xcopy &quot;${ProjectDir}\bin\release\Singularity.dll&quot; &quot;C:\Steam\steamapps\common\Kerbal Space Program\GameData\Singularity&quot; /Y" />
-        <Command type="AfterBuild" command="&quot;C:\Steam\steamapps\common\Kerbal Space Program\dx11.bat&quot;" />
-      </CustomCommands>
-    </CustomCommands>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
