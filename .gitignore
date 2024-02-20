@@ -2,3 +2,5 @@ bin
 obj
 .vs
 *.user
+GameData/Singularity/Singularity.dll
+GameData/Singularity/Singularity.pdb

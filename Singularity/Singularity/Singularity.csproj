@@ -38,7 +38,7 @@
     </CustomCommands>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
- <!--Import targets now, which will import the .csproj.user where the path to the KSP install root must be defined in ReferencePath-->
+  <!--Import targets now, which will import the .csproj.user where the path to the KSP install root must be defined in ReferencePath-->
   <!--This must be done after the main project poperties are defined because it needs the target framework property to be defined -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--Parse KSP platform-specific paths and set the start action-->
@@ -69,4 +69,11 @@
     <Compile Include="ScaledSceneBufferRenderer.cs" />
     <Compile Include="SceneRendererHook.cs" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+robocopy "$(TargetDir)." "$(SolutionDir)..\GameData\$(ProjectName)" $(TargetName).* /R:0
+robocopy "$(SolutionDir)..\GameData\$(ProjectName)" "$(ReferencePath)GameData\$(ProjectName)" /MIR /R:0
+if %errorlevel% leq 1 exit 0 else exit %errorlevel%
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
